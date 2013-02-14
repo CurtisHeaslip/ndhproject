@@ -24,7 +24,8 @@
             </div>
             <div id="searchBar">
                 <div id="languagePicker">
-                    <asp:HyperLink ID="hl_english" Text="English" NavigateUrl="#english" runat="server"/> / <asp:HyperLink ID="HyperLink1" Text="French" NavigateUrl="#french" runat="server"/>
+                    <asp:HyperLink ID="hl_english" Text="English" NavigateUrl="#english" runat="server"/> /
+                    <asp:HyperLink ID="HyperLink1" Text="French" NavigateUrl="#french" runat="server"/>
                 </div>
                 <div id="searchWrapper">
                     <div id="searchInner">
@@ -36,7 +37,8 @@
                 </div>
             </div>
         </div> <%-- /end primaryHeader --%>
-        <%-- /end header --%>
+
+        <%-- /end top header --%>
 
         <asp:Panel runat="server" id="primaryNavigationWrapper">
             <div id="innerNavigation">
@@ -47,6 +49,14 @@
                    <li><asp:HyperLink runat="server" ID="hl_careers" NavigateUrl="#careers" Text="Careers" /></li>
                    <li><asp:HyperLink runat="server" ID="hl_contact" NavigateUrl="#contactus" Text="Contact Us" /></li>
                 </ul>
+                <select id="naviListMob">
+                   <option class="currentLocation"><asp:Hyperlink runat="server" ID="hl_home_mob" NavigateUrl="#home" Text="Home" /></option>
+                   <option><asp:HyperLink runat="server" ID="hl_oursevices_mob" NavigateUrl="#ourservices" Text="Our Services" /></option>
+                   <option><asp:HyperLink runat="server" ID="hl_patientsandvisitors_mob" NavigateUrl="#patientsandvisitors" Text="Patients & Visitors"/></option>
+                   <option><asp:HyperLink runat="server" ID="hl_careers_mob" NavigateUrl="#careers" Text="Careers" /></option>
+                   <option><asp:HyperLink runat="server" ID="hl_contact_mob" NavigateUrl="#contactus" Text="Contact Us" /></option>
+                </select>
+
             </div><%-- /end innerNavigation --%>
         </asp:Panel><%--/end primaryNavigationWrapper --%>
         
@@ -132,8 +142,9 @@
                 </div>
                 <div class="footerColumnLong">
                     <h1>Our Partners</h1>
-
+                
                 </div>
+
                 <div id="footerBottom">
                     <div class="footerCopyright">
                         <asp:HyperLink ID="hl_footer_name" runat="server" Text="&copy; 2013- Notre-Dame Hospital" NavigateUrl="#" />

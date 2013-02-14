@@ -33,7 +33,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body {
 	font-family: @baseFontFamily;
-	font-size: 18px;
+	font-size: 18px/1em;
 	font-weight: 100;
 }
 
@@ -69,22 +69,22 @@ div#containerWrapper {
  * ================================================================================  
  */
 
-div#primaryHeader {
+#primaryHeader {
 	max-width: 1180px;
 	margin: 20px auto;
-	overflow: auto;
-}
-
-div#brandLogo {
-	clear: both;
-	float: left;
-	width: 25%;
 	overflow: hidden;
 }
 
-div#searchBar {
+#brandLogo {
+	clear: both;
 	float: left;
-	width: 75%;
+	width:50%;
+
+}
+
+#searchBar {
+	float: left;
+	width: 50%;
 	text-align: right;
 }
 
@@ -147,6 +147,11 @@ div#searchBar {
 	height: 58px;
 }
 
+#naviListMob
+{
+display:none;
+}
+
 ul#naviList li {
 	float: left;
 	padding: 18px 30px;
@@ -181,13 +186,14 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
  #heroUnit {
 	max-width: 1180px;
 	margin: 0 auto;
+	width:100%;
  }
 
  #welcomeMessageWrapper {
  	position: relative;
 	top: 402px;
 	float: left;
-	width: 690px;
+	width: 80%;
 	height: 30px;
 	margin-right: 20px;
 	padding: 20px 30px;
@@ -198,28 +204,29 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	top: 0;
 	left: 0;
 	background: rgba(22, 165, 181, .8);
-	opacity: 0.75;
 	width: 100%;
 	height: 100%;
  }
 
  #cph_hero_lbl_welcome {
-	position: absolute;
-	top: 10px;
-	left: 25px;
+	float:left;
+
+	padding:10px 0px 10px 10px;
 	color: @baseWhite;
-	font-weight: 300;
-	font-size: 2.556em;
+	font-weight: 250;
+	font-size: 2.4em;
 	letter-spacing: .0em;
  }
 
+
  #donateMessage {
 	color: @baseWhite;
-	float: left;
-	width: 370px;
+	float: right;
+	width: 30%;
 	padding: 15px 20px;
 	background-color: @baseRed;
 	text-align: left;
+	padding-right:10px;
  }
 
  #donateMessage h2 {
@@ -245,7 +252,7 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 
  #primaryContent {
 	float: left;
-	width: 730px;
+	width: 60%;
 	padding: 10px 10px 0 10px;
 	border-top: 10px solid @altBlue;
 	background-color: @baseLightGrey;
@@ -285,7 +292,8 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 
  #secondaryContent {
 	float: left;
-	width: 403px;
+	max-width: 403px;
+	width:30%;
 	overflow: auto;
  }
 
@@ -318,6 +326,7 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 		}
  }
 
+ 
 /* ================================================================================
  * Index Footer CSS
  * ================================================================================  
@@ -327,12 +336,14 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	clear: both;
 	width: 100%;
 	background-color: @baseGrey;
+
  }
 
  #footerInterior {
  	font-size: 0.9em;
 	line-height: 2em;
-	width: 1180px;
+	max-width: 1180px;
+	width:100%;
 	margin: 0 auto;
 	padding: 25px 0;
 	overflow: auto;
@@ -391,4 +402,61 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 
 .borderRight {
 	border-right: 1px solid @baseBlue;
+}
+
+
+@media  screen and (max-width:40em){
+//nothing here...
+}
+
+
+@media screen and (max-width:48em){
+
+//top logo and search bar get 100% width at this screen width
+#brandLogo,#searchBar {
+	width:100%;
+	padding-bottom:1em;
+	}
+//hide the main naviList
+#naviList{
+display:none;
+}
+
+#naviListMob{
+display:block;
+width:100%;
+font-size:2em;
+color:white;
+background:@altBlue;
+}
+
+
+//these next two reduce the font size so the text fits within their respective backgrounds
+#cph_hero_lbl_welcome,  #donateMessage h2 {	font-size:1.5em; }
+ #heroUnit{ a{font-size: 1.0em;} }
+
+
+//these only get 95%, as 100% causing extra horizontal scrolling at smallest size
+#primaryContent,#secondaryContent,.footerColumnLong{width:95%;}
+
+//this allows the footer element to line up side by side
+.footerColumnShort{width:50%;}
+
+.footerCopyright{
+text-align:center;
+width:100%;
+}
+
+}
+
+@media screen and (max-width:55em){
+
+
+ul#naviList li {
+	padding: 18px 20px;
+	font-size: 1em;
+}
+
+
+
 }
