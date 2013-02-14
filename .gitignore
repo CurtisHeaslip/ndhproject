@@ -40,6 +40,7 @@ local.properties
 *.suo
 *.user
 *.sln.docstates
+img/
 Web.config
 
 # Build results
