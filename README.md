@@ -1,5 +1,5 @@
 # NDHospital Project
-## Last Updated: Feb. 13, 2013 - 20:57
+## Last Updated: Feb. 13, 2013 - 22:54
 
 #### Before Diving In Remember...
 * We are using LESS for CSS
@@ -11,10 +11,10 @@
 
 * CSS for Index Page
 * Index Master Page
+* CSS for Content Page
+* Generic Content Page
 
 #### Currently being worked on:
 
-* CSS for Content Page
-* Content Master Page
 * Static Content
 * LINQ integration
