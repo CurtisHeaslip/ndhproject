@@ -45,7 +45,7 @@
                     <div class="secondarySectionID">
                         <span class="secondaryTitle">Volunteer</span>
                     </div>
-                    <div class="secondaryContent">
+                    <div class="secondaryContentContent">
                         <p>Notre Dame volunteers are renowned in the hospital for the valuable contributions they make every day.</p>
 
                         <span class="secondaryLink"><a href="#volunteer">Volunteer Today</a></span>

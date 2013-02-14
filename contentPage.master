@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="homePage.master.cs" Inherits="homePage" EnableTheming="true" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="contentPage.master.cs" Inherits="contentPage" EnableTheming="true" %>
 
 <!DOCTYPE html>
 
@@ -62,17 +62,22 @@
         
         <%-- /end navigation section --%>
 
-        <asp:ContentPlaceHolder ID="cph_hero" runat="server">
-            HERO UNIT CONTENT GOES HERE
-        </asp:ContentPlaceHolder><%-- /end cph_hero --%>
+        <div id="heroUnitWrapperContent" class="clearfix">
+            <div id="heroUnitContent">
+                <div id="contentHeroUnitMessage">
+                    <asp:ContentPlaceHolder ID="cph_hero_content" runat="server">
+                        HERO UNIT CONTENT GOES HERE
+                    </asp:ContentPlaceHolder><%-- /end cph_hero --%>
+                </div>
+            </div><%-- /end heroUnit --%>
+
         
         <%-- /end hero section --%>
         
-        <asp:Panel runat="server" id="contentWrapper">
             
-            <div id="primaryContent">
+            <div id="primaryContentContent">
 
-                <asp:ContentPlaceHolder ID="cph_primary" runat="server">
+                <asp:ContentPlaceHolder ID="cph_primary_content" runat="server">
 
                     PRIMARY CONTENT GOES HERE
                 
@@ -86,7 +91,7 @@
             <%-- /end primary content section --%>
 
             
-            <div id="secondaryContent">
+            <div id="secondaryContentContent">
 
                 <asp:ContentPlaceHolder ID="cph_secondary" runat="server">
 
@@ -97,7 +102,7 @@
 
             <%-- /end secondary content section --%>
            
-        </asp:Panel><%--/end contentWrapper --%>
+        </div><%-- /end heroUnitWrapper --%>
 
         <%-- /end content section --%>
 

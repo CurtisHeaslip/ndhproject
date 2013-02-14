@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class homePage : System.Web.UI.MasterPage
+public partial class contentPage : System.Web.UI.MasterPage
 {
 
     // Exposing the _title property
-    private string _title = "Notre-Dame Hospital - Hearst, Ontario, Canada"; 
+    private string _title = "Notre-Dame Hospital - Hearst, Ontario, Canada";
 
     public string pp_masterTitle
     {
