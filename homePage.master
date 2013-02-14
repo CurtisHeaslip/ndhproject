@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="homePage.master.cs" Inherits="homePage" EnableTheming="true" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>Notre-Dame Hospital - Hearst, Ontario, Canada</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="App_Themes/notreDame/stylesheets/general_foundicons.css" />
+
+    <asp:ContentPlaceHolder ID="cph_head" runat="server">
+            HEAD CONTENT GOES HERE
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+    <asp:Panel runat="server" id="containerWrapper">
+    
+        <div id="primaryHeader">
+            <div id="brandLogo">
+                <asp:HyperLink ID="hl_logo" ImageUrl="~/img/branding/mainLogo.png" Text="Return Home"  NavigateUrl="~/index.aspx" runat="server"/>
+            </div>
+            <div id="searchBar">
+                <div id="languagePicker">
+                    <asp:HyperLink ID="hl_english" Text="English" NavigateUrl="#english" runat="server"/> / <asp:HyperLink ID="HyperLink1" Text="French" NavigateUrl="#french" runat="server"/>
+                </div>
+                <div id="searchWrapper">
+                    <div id="searchInner">
+                        <asp:TextBox ID="txt_search" runat="server" />
+                    </div>
+                    <div id="searchSubmit">
+                        <asp:LinkButton ID="lnk_search" runat="server" OnClick="Page_Load" CssClass="general foundicon-search" />
+                    </div>
+                </div>
+            </div>
+        </div> <%-- /end primaryHeader --%>
+        <%-- /end header --%>
+
+        <asp:Panel runat="server" id="primaryNavigationWrapper">
+            <div id="innerNavigation">
+                <ul id="naviList">
+                   <li class="currentLocation"><asp:Hyperlink runat="server" ID="hl_home" NavigateUrl="#home" Text="Home" /></li>
+                   <li><asp:HyperLink runat="server" ID="hl_ourservices" NavigateUrl="#ourservices" Text="Our Services" /></li>
+                   <li><asp:HyperLink runat="server" ID="hl_patientsandvisitors" NavigateUrl="#patientsandvisitors" Text="Patients & Visitors"/></li>
+                   <li><asp:HyperLink runat="server" ID="hl_careers" NavigateUrl="#careers" Text="Careers" /></li>
+                   <li><asp:HyperLink runat="server" ID="hl_contact" NavigateUrl="#contactus" Text="Contact Us" /></li>
+                </ul>
+            </div><%-- /end innerNavigation --%>
+        </asp:Panel><%--/end primaryNavigationWrapper --%>
+        
+        <%-- /end navigation section --%>
+
+        <asp:ContentPlaceHolder ID="cph_hero" runat="server">
+            HERO UNIT CONTENT GOES HERE
+        </asp:ContentPlaceHolder><%-- /end cph_hero --%>
+        
+        <%-- /end hero section --%>
+        
+        <asp:Panel runat="server" id="contentWrapper">
+            
+            <div id="primaryContent">
+
+                <asp:ContentPlaceHolder ID="cph_primary" runat="server">
+
+                    PRIMARY CONTENT GOES HERE
+                
+                </asp:ContentPlaceHolder><%-- /end cph_primary --%>
+
+                <div class="returnToTop">
+                    <asp:HyperLink ID="lnk_returnToTop" runat="server" Text="Return to Top" NavigateUrl="#top" />
+                </div> 
+            </div><%-- /end primaryContent --%>
+
+            <%-- /end primary content section --%>
+
+            
+            <div id="secondaryContent">
+
+                <asp:ContentPlaceHolder ID="cph_secondary" runat="server">
+
+                    SECONDARY CONTENT GOES HERE
+
+               </asp:ContentPlaceHolder><%-- /end secondary cph --%>
+            </div> <%-- /end secondaryContent--%>
+
+            <%-- /end secondary content section --%>
+           
+        </asp:Panel><%--/end contentWrapper --%>
+
+        <%-- /end content section --%>
+
+        
+
+        <asp:Panel runat="server" id="footerWrapper">
+            <div id="footerInterior">
+                <div class="footerColumnShort">
+                    <h1>Additional Information</h1>
+                    <ul class="footerList">
+                        <li><asp:HyperLink runat="server" ID="hl_accessibility" NavigateUrl="#" Text="Our Accessibility Plan" /></li>
+                        <li><asp:HyperLink runat="server" ID="hl_rights" NavigateUrl="#" Text="Your Rights & Concerns" /></li>
+                        <li><asp:HyperLink runat="server" ID="hl_confidentiality" NavigateUrl="#" Text="Confidentiality & Copyright" /></li>
+                        <li><asp:HyperLink runat="server" ID="hl_maps" NavigateUrl="#" Text="Maps & Directions" /></li>
+                    </ul>
+                    <ul class="footerList">
+                        <li>1405 Edward Street</li>
+                        <li>Hearst, ON</li>
+                        <li>Ph: 705 - 362 - 4291</li>
+                        <li>Fx: 705 - 372 - 2923</li>
+                    </ul>
+                </div>
+                <div class="footerColumnShort">
+                    <h1>Social Media</h1>
+                    <ul class="footerSocialList">
+                        <li><asp:HyperLink ID="hl_rss_icon" runat="server" NavigateUrl="#" CssClass="foundicon-rss" />
+                            <asp:HyperLink ID="hl_rss_text" runat="server" NavigateUrl="#" CssClass="socialLink" Text="RSS Feed" />
+                        </li>
+                        <li><asp:HyperLink ID="hl_fb_icon"  runat="server" NavigateUrl="#" CssClass="foundicon-facebook" />
+                            <asp:HyperLink ID="hl_fb_text" runat="server" NavigateUrl="#" CssClass="socialLink" Text="Facebook" />
+                        </li>
+                        <li><asp:HyperLink ID="hl_tw_icon" runat="server" NavigateUrl="#" CssClass="foundicon-twitter"/>
+                            <asp:HyperLink ID="hl_tw_text" runat="server" NavigateUrl="#" CssClass="socialLink" Text="Twitter" />
+                        </li>
+                        <li><asp:HyperLink ID="hl_lk_icon" runat="server" NavigateUrl="#" CssClass="foundicon-linkedin" />
+                            <asp:HyperLink ID="hl_lk_text" runat="server" NavigateUrl="#" CssClass="socialLink" Text="LinkedIn" />
+                        </li>
+                        <li><asp:HyperLink ID="hl_yt_icon" runat="server" NavigateUrl="#" CssClass="foundicon-youtube" />
+                            <asp:HyperLink ID="hl_yt_text" runat="server" NavigateUrl="#" CssClass="socialLink" Text="YouTube" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="footerColumnLong">
+                    <h1>Our Partners</h1>
+
+                </div>
+                <div id="footerBottom">
+                    <div class="footerCopyright">
+                        <asp:HyperLink ID="hl_footer_name" runat="server" Text="&copy; 2013- Notre-Dame Hospital" NavigateUrl="#" />
+                    </div>
+                    <div class="footerNavigation">
+                        <ul>
+                            <li class="borderRight"><asp:HyperLink ID="hl_home_footer" Text="Home" runat="server" /></li>
+                            <li class="borderRight"><asp:HyperLink ID="hl_services_footer" NavigateUrl="#" runat="server" Text="Our Services" /></li>
+                            <li class="borderRight"><asp:HyperLink ID="hl_patients_footer" NavigateUrl="#" runat="server" Text="Patients & Visitors" /></li>
+                            <li class="borderRight"><asp:HyperLink ID="hl_careers_footer" NavigateUrl="#" runat="server" Text="Careers" /></li>
+                            <li><asp:HyperLink ID="hl_contact_footer" NavigateUrl="#" runat="server" Text="Contact Us" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <%-- /end footerInterior --%>
+        </asp:Panel><%-- /end footerWrapper --%>
+    </asp:Panel><%-- /end containerWrapper --%>
+
+    <%-- /end container wrapper --%>
+
+
+    </form>
+
+    <%-- Insert JavaScripts --%>
+    <script src="js/vendor/jquery-1.9.0.min.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

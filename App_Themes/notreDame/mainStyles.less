@@ -1,0 +1,394 @@
+﻿
+/*
+ * ================================================================================  
+ * Project Title: Notre-Dame Hospital
+ * Team Members: Acer Alhashimi, Colin Mather, Curtis Heaslip, Michael MacPherson, Neil Fenton
+ * Tools: ASP.net, LESS CSS
+ * Copyright 2013 - Team 5
+ * ================================================================================  
+ */
+
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+/* LESS elements : http://lesselements.com/ */
+@import "elements.less";
+
+/* ================================================================================
+ * Global CSS
+ * ================================================================================  
+ */
+
+@baseBlue: #16a5b5;
+@altBlue: #94dfeb;
+@baseRed: #ee6557;
+@baseGrey: #efefef;
+@baseLightGrey: #fbfbfb;
+@baseBlack: #181818;
+@baseWhite: #ffffff;
+
+@baseLightBlue: #dce9ea;
+
+@baseFontFamily: 'Open Sans', Helvetica, Arial, sans-serif;
+
+body {
+	font-family: @baseFontFamily;
+	font-size: 18px;
+	font-weight: 100;
+}
+
+a {
+	text-decoration: none;
+	color: @baseBlue;
+}
+
+a:hover {
+	color: @baseRed;
+}
+
+p {
+	line-height: 1.35em;
+	margin-bottom: 25px;
+}
+
+h1 {
+	font-size: 2.556em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+div#containerWrapper {
+	width: 100%;
+	overflow: visible;
+}
+
+ /* ================================================================================
+ * Primary Header CSS
+ * ================================================================================  
+ */
+
+div#primaryHeader {
+	max-width: 1180px;
+	margin: 20px auto;
+	overflow: auto;
+}
+
+div#brandLogo {
+	clear: both;
+	float: left;
+	width: 25%;
+	overflow: hidden;
+}
+
+div#searchBar {
+	float: left;
+	width: 75%;
+	text-align: right;
+}
+
+#languagePicker {
+	margin-bottom: 15px;
+}
+
+#searchWrapper {
+	clear: both;
+	float: right;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	border: 1px solid @baseBlue;
+	width: 349px;
+	height: 27px;
+	color: @baseBlue;
+}
+
+#searchInner {
+	float: left;
+	width: 92.5%;
+}
+
+#searchSubmit {
+	float: left;
+	width: 7.5%;
+}
+
+#searchInner input {
+	border: 0;
+	width: 100%;
+	height: 25px;
+}
+
+#searchWrapper .foundicon-search {
+	position: relative;
+	font-size: 1.20em;
+	left: -3px;
+	top: 3px;
+}
+
+ /* ================================================================================
+ * Primary Navigation CSS
+ * ================================================================================  
+ */
+
+ #primaryNavigationWrapper {
+	clear: both;
+	width: 100%;
+	height: 57px;
+	background-color: lighten(@baseLightBlue, 10%);
+	overflow: hidden;
+ }
+
+ #innerNavigation {
+	max-width: 1180px;
+	margin: 0 auto;
+	overflow: hidden;
+	height: 58px;
+}
+
+ul#naviList li {
+	float: left;
+	padding: 18px 30px;
+	font-size: 1.15em;
+}
+
+ul#naviList li:hover {
+	background-color: lighten(@baseLightBlue, 5%);
+}
+
+ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
+	background: -moz-linear-gradient(top,  rgba(220,233,234,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220,233,234,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(220,233,234,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(220,233,234,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(220,233,234,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(220,233,234,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dce9ea', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+ /* ================================================================================
+ * Index Hero Unit CSS
+ * ================================================================================  
+ */
+
+ #heroUnitWrapper {
+	width: 100%;
+	height: 472px;
+	background: url('../../img/hero-unit/index-doctor-lineup.jpg') no-repeat center;
+ }
+
+ #heroUnit {
+	max-width: 1180px;
+	margin: 0 auto;
+ }
+
+ #welcomeMessageWrapper {
+ 	position: relative;
+	top: 402px;
+	float: left;
+	width: 690px;
+	height: 30px;
+	margin-right: 20px;
+	padding: 20px 30px;
+ }
+
+ #welcomeMessage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(22, 165, 181, .8);
+	opacity: 0.75;
+	width: 100%;
+	height: 100%;
+ }
+
+ #cph_hero_lbl_welcome {
+	position: absolute;
+	top: 10px;
+	left: 25px;
+	color: @baseWhite;
+	font-weight: 300;
+	font-size: 2.556em;
+	letter-spacing: .0em;
+ }
+
+ #donateMessage {
+	color: @baseWhite;
+	float: left;
+	width: 370px;
+	padding: 15px 20px;
+	background-color: @baseRed;
+	text-align: left;
+ }
+
+ #donateMessage h2 {
+	letter-spacing: -0.03em;
+	margin-bottom: 10px;
+ }
+
+ #donateMessage a {
+	color: @baseWhite;
+	font-size: 1.25em;
+	text-decoration: underline;
+ }
+
+/* ================================================================================
+ * Index Primary Content CSS
+ * ================================================================================  
+ */
+
+ #contentWrapper {
+	max-width: 1180px;
+	margin: 28px auto;
+ }
+
+ #primaryContent {
+	float: left;
+	width: 730px;
+	padding: 10px 10px 0 10px;
+	border-top: 10px solid @altBlue;
+	background-color: @baseLightGrey;
+	margin-right: 27px;
+ }
+
+ .contentSection {
+	padding: 20px;
+ }
+
+ .contentSectionID {
+	font-size: 1.333em;
+	text-transform: uppercase;
+ }
+
+ .contentDate {
+	font-size: 1.556em;
+	line-height: 1.25em;
+ }
+
+ .contentTitle {
+	font-size: 1.556em;
+	line-height: 1.45em;
+	margin-bottom: 15px;
+ }
+
+ .returnToTop {
+	border-top: 1px solid @baseBlue;
+	padding: 10px 0;
+	margin: 0 20px 10px 20px;
+ }
+
+ /* ================================================================================
+ * Index Secondary Content CSS
+ * ================================================================================  
+ */
+
+ #secondaryContent {
+	float: left;
+	width: 403px;
+	overflow: auto;
+ }
+
+ .secondaryContentWrapper {
+	border-top: 10px solid @baseRed;
+	padding: 10px 10px 10px 10px;
+	background-color: @baseLightGrey;
+	margin-bottom: 25px;
+ }
+
+ .secondarySectionID {
+	font-size: 1.333em;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+ }
+
+ .secondaryContent {
+	padding: 5px 10px 10px 10px;
+ }
+
+ .secondaryLink a {
+	display: block;
+	width: auto;
+	font-size: 1.333em;
+	color: @baseBlack;
+	line-height: 1.5em;
+	text-decoration: underline;
+		&:hover { 
+			color: lighten(@baseBlack, 65%);
+		}
+ }
+
+/* ================================================================================
+ * Index Footer CSS
+ * ================================================================================  
+ */
+
+ #footerWrapper {
+	clear: both;
+	width: 100%;
+	background-color: @baseGrey;
+ }
+
+ #footerInterior {
+ 	font-size: 0.9em;
+	line-height: 2em;
+	width: 1180px;
+	margin: 0 auto;
+	padding: 25px 0;
+	overflow: auto;
+}
+
+.footerColumnShort {
+	float: left;
+	width: 25%;
+}
+
+.footerColumnLong {
+	float: left;
+	width: 50%;
+}
+
+#footerInterior h1 {
+	font-size: 1em;
+}
+
+.footerList {
+	margin-bottom: 35px;
+}
+
+.footerSocialList li {
+	line-height: 2.65em;
+}
+
+.socialLink {
+	position: relative;
+	top: -12px;
+	padding-left: 15px;
+}
+
+#footerBottom {
+	border-top: 1px solid @baseBlue;
+	clear: both;
+	width: 100%;
+}
+
+.footerCopyright {
+	float: left;
+	width: 35%;
+}
+
+.footerNavigation {
+	float: right;
+}
+
+.footerNavigation ul li {
+	float: left;
+	line-height: 1.25em;
+	margin: 10px 0;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.borderRight {
+	border-right: 1px solid @baseBlue;
+}
