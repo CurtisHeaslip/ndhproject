@@ -439,6 +439,10 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	}
  }
 
+ #cnt_hero_content, #lbl_contentHeader{
+ border:1px solid red;
+ }
+
 /* ================================================================================
  * Content Primary Content CSS
  * ================================================================================  
@@ -481,6 +485,7 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	width: 26%;
 	overflow: auto;
  }
+ 
 
  .secondaryContentWrapperContent {
 	border-top: 10px solid @baseRed;
@@ -523,14 +528,22 @@ color:white;
 background:@altBlue;
 }
 
-
 //these next two reduce the font size so the text fits within their respective backgrounds
 #cph_hero_lbl_welcome,  #donateMessage h2 {	font-size:1.5em; }
  #heroUnit{ a{font-size: 1.0em;} }
 
 
 //these only get 95%, as 100% causing extra horizontal scrolling at smallest size
-#primaryContent,#secondaryContent,.footerColumnLong{width:95%;}
+#primaryContent,#secondaryContent,.footerColumnLong, {width:95%;}
+
+#secondaryContentContent
+{
+width:60%;
+}
+
+#cnt_hero_content{
+clear:both;
+}
 
 //this allows the footer element to line up side by side
 .footerColumnShort{width:50%;}
