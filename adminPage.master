@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"  MasterPageFile="~/singlePage.master" CodeFile="adminPage.master.cs" Inherits="adminPage" %>
+
+<asp:Content ID="cnt_hero_content" ContentPlaceHolderID="cph_hero" runat="server">
+   <h1><asp:Label ID="lbl_contentHeader" runat="server" Text="Welcome to the Admin Page" /></h1>
+    <h2><asp:Label ID="lbl_contentSubHeader" runat="server" Text="We wish you good tiding in your edits" /></h2>
+</asp:Content>
+
+<asp:Content ID="cnt_primary_title" ContentPlaceHolderID="cph_primary_title" runat="server">
+   <h1>Have fun!</h1> 
+</asp:Content>
+
+<asp:Content ID="cnt_primary_content" ContentPlaceHolderID="cph_primary_content" runat="server">
+
+    <asp:ContentPlaceHolder ID="cph_content" runat="server">
+        ADMIN CONTENT GOES HERE
+    </asp:ContentPlaceHolder>
+
+</asp:Content>
+
+<asp:Content ID="cnt_secondary_title" ContentPlaceHolderID="cph_secondary_title" runat="server">
+   List of Admin Pages
+</asp:Content>
+
+<asp:Content ID="cnt_secondary_content" ContentPlaceHolderID="cph_secondary_content" runat="server">
+    <ul>
+        <li> News page</li>
+        <li> Doctor Page</li>
+        <li> Calendar Page</li>
+        <li> Plugins Page</li>
+
+    </ul>
+</asp:Content>
