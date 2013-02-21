@@ -258,6 +258,10 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	border-top: 10px solid @altBlue;
 	background-color: @baseLightGrey;
 	margin-right: 27px;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 0px 5px 10px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    0px 5px 10px rgba(50, 50, 50, 0.35);
+	box-shadow:         0px 5px 10px rgba(50, 50, 50, 0.35);
  }
 
  .contentSection {
@@ -482,8 +486,8 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
  #secondaryContentContent {
 	float: left;
 	max-width: 403px;
-	width: 26%;
-	overflow: auto;
+	//width: 26%;
+	//overflow: auto;
  }
  
 
@@ -539,10 +543,12 @@ background:@altBlue;
 #secondaryContentContent
 {
 width:60%;
+//float:none;
+margin:0 5% 0 5%;
 }
 
-#cnt_hero_content{
-clear:both;
+#heroUnitContent{
+margin-bottom:120px;
 }
 
 //this allows the footer element to line up side by side
