@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/homePage.master" CodeFile="singlePage.master.cs" Inherits="singlePage" %>
+
+<asp:Content ID="cnt_head" ContentPlaceHolderID="cph_head" runat="server">
+</asp:Content>
+
+
+<asp:Content ID="cnt_hero" ContentPlaceHolderID="cph_hero" runat="server">
+
+    <div id="heroUnitContent">
+        <div id="contentHeroUnitMessage">
+            <asp:ContentPlaceHolder ID="cph_hero" runat="server">
+                HERO CONTENT GOES HERE
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+
+</asp:Content>
+
+<asp:Content ID="cnt_primary_content" ContentPlaceHolderID="cph_primary" runat="server">
+
+    <div class="contentSectionContent">
+        <asp:ContentPlaceHolder ID="cph_primary_title" runat="server">
+            PRIMARY TITLE GOES HERE
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="cph_primary_content" runat="server">
+            PRIMARY CONTENT GOES HERE
+        </asp:ContentPlaceHolder>
+    </div>
+</asp:Content>
+
+
+
+<asp:Content ID="cnt_secondary" ContentPlaceHolderID="cph_secondary" runat="server">
+    <div id="secondaryContentContent">
+        <div class="secondaryContentWrapperContent">
+            <div class="secondarySectionID">
+                <span class="secondaryTitle">
+                    <asp:ContentPlaceHolder runat="server" ID="cph_secondary_title">
+                        SECONDARY TITLE GOES HERE
+                    </asp:ContentPlaceHolder>
+                </span>
+            </div>
+            <div class="secondaryContent">
+                <asp:ContentPlaceHolder ID="cph_secondary_content" runat="server">
+                    SECONDARY CONTENT GOES HERE
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+
