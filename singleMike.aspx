@@ -2,7 +2,7 @@
 
 <asp:Content ID="cnt_hero" ContentPlaceHolderID="cph_hero" runat="server">
      <h1><asp:Label ID="lbl_contentHeader" runat="server" Text="Building Stronger Communities" /></h1>
-    <h2><asp:Label ID="lbl_contentSubHeader" runat="server" Text="Striving to bring out the best in each other" /></h2>
+    <h2><asp:Label ID="lbl_contentSubHeader" runat="server" Text="Striving to bring out the best in each other" /></h2><%--this is a comment --%>
 </asp:Content>
 
 
