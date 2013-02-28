@@ -33,20 +33,13 @@
 
 <asp:Content ID="cnt_secondary" ContentPlaceHolderID="cph_secondary" runat="server">
     <div id="secondaryContentContent">
-        <div class="secondaryContentWrapperContent">
-            <div class="secondarySectionID">
-                <span class="secondaryTitle">
-                    <asp:ContentPlaceHolder runat="server" ID="cph_secondary_title">
-                        SECONDARY TITLE GOES HERE
-                    </asp:ContentPlaceHolder>
-                </span>
-            </div>
-            <div class="secondaryContent">
-                <asp:ContentPlaceHolder ID="cph_secondary_content" runat="server">
+        
+            
+                <asp:ContentPlaceHolder runat="server" ID="cph_secondary_content">
                     SECONDARY CONTENT GOES HERE
                 </asp:ContentPlaceHolder>
-            </div>
-        </div>
+           
+        
     </div>
 
 </asp:Content>

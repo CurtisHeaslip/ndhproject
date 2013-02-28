@@ -17,11 +17,10 @@
 
 </asp:Content>
 
-<asp:Content ID="cnt_secondary_title" ContentPlaceHolderID="cph_secondary_title" runat="server">
-   List of Admin Pages
-</asp:Content>
 
 <asp:Content ID="cnt_secondary_content" ContentPlaceHolderID="cph_secondary_content" runat="server">
+  <h2>  List of Admin Pages</h2>
+
     <ul>
         <li> News page</li>
         <li> Doctor Page</li>

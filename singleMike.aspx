@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/singlePage.master" AutoEventWireup="true" CodeFile="singleMike.cs" Inherits="_singleMike" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/singlePage.master" AutoEventWireup="true" CodeFile="singleMike.aspx.cs" Inherits="_singleMike" %>
 
 <asp:Content ID="cnt_hero" ContentPlaceHolderID="cph_hero" runat="server">
      <h1><asp:Label ID="lbl_contentHeader" runat="server" Text="Building Stronger Communities" /></h1>
@@ -18,13 +18,20 @@
 
 </asp:Content>
 
-<asp:Content ID="cnt_secondary_title" runat="server" ContentPlaceHolderID="cph_secondary_title">
-    Volunteer
-</asp:Content>
+
 
 <asp:Content ID="cnt_secondary_content" runat="server" ContentPlaceHolderID="cph_secondary_content">
-    <p>Notre Dame volunteers are renowned in the hospital for the valuable contributions they make every day.</p>
+    <div class="secondaryContentWrapperContent">
+        <div class="secondarySectionID">
+            <span class="secondaryTitle">Volunteer</span>
+        </div>
+        <div class="secondaryContent">
+            <p>Notre Dame volunteers are renowned in the hospital for the valuable contributions they make every day.</p>
 
             <span class="secondaryLink"><a href="#volunteer">Volunteer Today</a></span>
-
+        </div>
+    </div>
+    <%-- /end secondary widget--%>
+    
+    
 </asp:Content>
