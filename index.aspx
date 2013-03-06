@@ -6,6 +6,7 @@
 
 <%--This is another comment test for github --%>
 <%-- booyah! it worked --%>
+<%-- this is an example of a change  --%>
 
 <asp:Content ID="cnt_hero" ContentPlaceHolderID="cph_hero" runat="server">
     <div id="heroUnitWrapper">
