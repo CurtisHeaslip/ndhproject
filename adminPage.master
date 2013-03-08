@@ -1,16 +1,27 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true"  MasterPageFile="~/singlePage.master" CodeFile="adminPage.master.cs" Inherits="adminPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/singlePage.master" CodeFile="adminPage.master.cs" Inherits="adminPage" %>
 
 <asp:Content ID="cnt_hero_content" ContentPlaceHolderID="cph_hero" runat="server">
-   <h1><asp:Label ID="lbl_contentHeader" runat="server" Text="Welcome to the Admin Page" /></h1>
-    <h2><asp:Label ID="lbl_contentSubHeader" runat="server" Text="We wish you good tiding in your edits" /></h2>
+    <h1>
+        <asp:Label ID="lbl_contentHeader" runat="server" Text="Welcome to the Admin Page" /></h1>
+    <h2>
+        <asp:Label ID="lbl_contentSubHeader" runat="server" Text="We wish you good tiding in your edits" /></h2>
+    <asp:LoginView runat="server" ID="lgv_admin">
+        <AnonymousTemplate>
+
+        </AnonymousTemplate>
+        <LoggedInTemplate>
+            <asp:LoginStatus ID="lgs_admin" runat="server" ForeColor="Red" LogoutPageUrl="~/login.aspx"   />
+        </LoggedInTemplate>
+    </asp:LoginView>
+
 </asp:Content>
 
 <asp:Content ID="cnt_primary_title" ContentPlaceHolderID="cph_primary_title" runat="server">
-   <h1>Have fun!</h1> 
+    <h1>Have fun!</h1>
 </asp:Content>
 
 <asp:Content ID="cnt_primary_content" ContentPlaceHolderID="cph_primary_content" runat="server">
-
+    
     <asp:ContentPlaceHolder ID="cph_content" runat="server">
         ADMIN CONTENT GOES HERE
     </asp:ContentPlaceHolder>
@@ -19,13 +30,21 @@
 
 
 <asp:Content ID="cnt_secondary_content" ContentPlaceHolderID="cph_secondary_content" runat="server">
-  <h2>  List of Admin Pages</h2>
+    <div class="secondaryContentWrapperContent">
+        <div class="secondarySectionID">
+            <span class="secondaryTitle">List of Admin Pages</span>
+        </div>
+        <div class="secondaryContent">
+            <ul>
+           <li><asp:HyperLink runat="server" ID="hpl_homenewsAdmin" Text="News Page" NavigateUrl="~/admin/homenewsAdmin.aspx" /></li>
+           <li><asp:HyperLink runat="server" ID="hpl_careersAdmin" Text="Careers Page" NavigateUrl="~/admin/careersAdmin.aspx" /></li>
+                 <li>Doctor Page</li>
+                <li>Calendar Page</li>
+                <li>Plugins Page</li>
 
-    <ul>
-        <li> News page</li>
-        <li> Doctor Page</li>
-        <li> Calendar Page</li>
-        <li> Plugins Page</li>
+            </ul>
 
-    </ul>
+        </div>
+    </div>
+
 </asp:Content>

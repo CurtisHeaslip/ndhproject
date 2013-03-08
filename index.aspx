@@ -25,8 +25,6 @@
         </div><%-- /end heroUnitWrapper --%>
 </asp:Content>
 
-
-
 <asp:Content ID="cnt_primary" ContentPlaceHolderID="cph_primary" runat="server">
     <div class="contentSectionID">
                     <h3>News & Events</h3>

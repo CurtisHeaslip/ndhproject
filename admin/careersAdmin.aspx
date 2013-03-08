@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminPage.master" AutoEventWireup="true" CodeFile="careersAdmin.cs" Inherits="_careersAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminPage.master" AutoEventWireup="true" CodeFile="careersAdmin.aspx.cs" Inherits="_careersAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_content" Runat="Server">
     <asp:Label ID="lbl_insert" runat="server" Text="Create a New Job Posting:" Font-Bold="true" />
