@@ -14,7 +14,7 @@
             HEAD CONTENT GOES HERE
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body onload="initialize()">
     <form id="mainForm" runat="server">
     <asp:Panel runat="server" id="containerWrapper">
     

@@ -1,6 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/homePage.master" CodeFile="singlePage.master.cs" Inherits="singlePage" %>
 
 <asp:Content ID="cnt_head" ContentPlaceHolderID="cph_head" runat="server">
+    <asp:ContentPlaceHolder ID="cph_subhead" runat="server">
+        <!-- Insert page dependent scripts here -->
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 

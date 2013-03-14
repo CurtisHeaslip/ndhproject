@@ -502,6 +502,115 @@ ul#naviList li.currentLocation, ul#naviList li.currentLocation:hover {
 	padding: 0px;
  }
 
+ /* ================================================================================  
+  * Distance Matrix Map Styles
+  * ================================================================================  
+  */
+
+.transition (@time: 0.5s) {
+	-webkit-transition: all @time ease-in;
+	-moz-transition: all @time ease-in;
+	-o-transition: all @time ease-in;
+	-ms-transition: all @time ease-in;
+	transition: all @time ease-in;	
+}
+
+#contentWindow {
+	overflow: hidden;
+	padding: 15px 0;
+	h1 {
+		font-size: 1.25em;
+	}
+}
+
+#mapContainer {
+    position: relative;
+    width: 100%;
+    left: 5px;
+    top: 5px;
+	
+	#map {
+		position: relative;
+		width: 100%;
+		height: 400px;
+		border: 1px solid grey;
+	}
+}
+
+#controls {
+	padding: 15px 0;
+
+	span {
+		text-align: right;
+		font-size: 0.85em;
+		width: 100%;
+		display: block;
+	}
+}
+
+.head {
+	background-color: @baseGrey;
+}
+
+
+table#matrix {
+	position: relative;
+	border-collapse: collapse;
+	width: 100%;
+	border: 0;
+	font-size: 0.85em;
+
+	tr {
+		line-height: 1.4;
+
+		td {
+
+			border: 0;
+			width: 50%;
+			cursor: default;
+			padding: 5px;
+		}
+	}
+
+	.destination {
+	text-align: center;
+	font-weight: 300;
+	padding: 10px;
+	}
+
+	.origin {
+		text-align: right;
+		font-weight: 300;
+		padding: 10px;
+	}
+			
+	.calculation {
+		font-weight: bold;
+		text-align: center;
+		.transition(0.1s);
+
+		&:hover {
+			background-color: @altBlue;
+		}
+		&:active {
+			background-color: red;
+		}
+	}
+}
+
+/*
+@baseBlue: #16a5b5;
+@altBlue: #94dfeb;
+@baseRed: #ee6557;
+@baseGrey: #efefef;
+@baseLightGrey: #fbfbfb;
+@baseBlack: #362f2d;
+@baseWhite: #ffffff;
+
+@baseLightBlue: #dce9ea;
+*/
+
+
  /* ================================================================================
  * Responsive CSS - This should always be lowest CSS
  * ================================================================================  
