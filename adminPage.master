@@ -10,7 +10,7 @@
 
         </AnonymousTemplate>
         <LoggedInTemplate>
-            <asp:LoginStatus ID="lgs_admin" runat="server" ForeColor="Red" LogoutPageUrl="~/login.aspx"   />
+            <asp:LoginStatus ID="lgs_admin" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/login.aspx" ForeColor="Red"  />
         </LoggedInTemplate>
     </asp:LoginView>
 
@@ -31,20 +31,29 @@
 
 <asp:Content ID="cnt_secondary_content" ContentPlaceHolderID="cph_secondary_content" runat="server">
     <div class="secondaryContentWrapperContent">
+        <asp:LoginView ID="lgn_admin2" runat="server">
+            <AnonymousTemplate>
+                <div class="secondarySectionID">
+            <span class="secondaryTitle">Please login</span>
+        </div>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
         <div class="secondarySectionID">
             <span class="secondaryTitle">List of Admin Pages</span>
         </div>
         <div class="secondaryContent">
             <ul>
-           <li><asp:HyperLink runat="server" ID="hpl_homenewsAdmin" Text="News Page" NavigateUrl="~/admin/homenewsAdmin.aspx" /></li>
-           <li><asp:HyperLink runat="server" ID="hpl_careersAdmin" Text="Careers Page" NavigateUrl="~/admin/careersAdmin.aspx" /></li>
+       <li><asp:HyperLink runat="server" ID="hpl_homenewsAdmin" Text="News Page" NavigateUrl="~/admin/homenewsAdmin.aspx" /></li>
+       <li><asp:HyperLink runat="server" ID="hpl_careersAdmin" Text="Careers Page" NavigateUrl="~/admin/careersAdmin.aspx" /></li>
+       <li><asp:HyperLink runat="server" ID="hpl_contactAdmin" Text="Contact Page" NavigateUrl="~/admin/contactAdmin.aspx" /></li>
                  <li>Doctor Page</li>
                 <li>Calendar Page</li>
                 <li>Plugins Page</li>
 
             </ul>
-
         </div>
+                </LoggedInTemplate>
+            </asp:LoginView>
     </div>
 
 </asp:Content>

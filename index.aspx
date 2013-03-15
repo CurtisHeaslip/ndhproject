@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/homePage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/homePage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="_index" %>
 
 <asp:Content ID="cnt_head" runat="server" ContentPlaceHolderID="cph_head">
 
@@ -29,14 +29,17 @@
     <div class="contentSectionID">
                     <h3>News & Events</h3>
                 </div> <%-- /end contentSectionID --%>
-
-                <div class="contentSection">
-                    <span class="contentDate">January 23, 2013</span>
-                    <h2 class="contentTitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elit ipsum, hendrerit iaculis varius ac, facilisis et nisi. Duis posuere adipiscing libero vitae condimentum. Aenean ut massa velit, id tempus urna. Praesent lacus mi, pellentesque non convallis et, commodo eu justo. Nullam commodo rhoncus pellentesque. Sed consectetur volutpat venenatis. Nulla placerat congue ligula, id pharetra enim ultricies non. Quisque et risus sem, vitae vulputate felis. Nam ut ipsum at tortor feugiat consequat. Mauris pellentesque, nibh id dictum porttitor, nisl eros scelerisque velit, a volutpat nunc libero varius nibh. Suspendisse potenti. Nam faucibus felis in mi ultricies ullamcorper.</p>
-
-                    <p>Fusce porttitor hendrerit arcu sed dictum. Duis vel mauris sed purus elementum tempus a id lacus. Curabitur mollis dui quis dui ultrices vestibulum sed in diam. Phasellus eu sem nec dolor dictum aliquet sit amet a purus. Duis egestas iaculis varius. Proin ipsum massa, lobortis in gravida sit amet, scelerisque vestibulum velit. Nam vel sem congue risus dictum auctor nec ac velit. In adipiscing tempus purus at facilisis.</p>
-                </div><%--/end contentSection --%>
+  
+        <div class="contentSection">
+        <asp:ListView runat="server" ID="lsv_index" >
+            <ItemTemplate>
+             <asp:Label ID="lbl_date" runat="server" Text='<%#Eval("event_date") %>' CssClass="contentDate" /><br />
+             <asp:Label ID="lbl_title" runat="server" Text='<%#Eval("title") %>' CssClass="contentTitle" /><br />
+            <asp:Label ID="lbl_main_text" runat="server" Text='<%#Eval("main_text") %>'  /><br /><br />
+            </ItemTemplate>
+        </asp:ListView>
+            </div><%--/end contentSection --%>
+                
 </asp:Content>
 
 <asp:Content ID="cnt_secondary" ContentPlaceHolderID="cph_secondary" runat="server">

@@ -9,14 +9,11 @@ public partial class _homenewsAdmin : System.Web.UI.Page
 {
     newsLinqClass objLinq = new newsLinqClass();
 
-
-
     protected void Page_Load(object sender, EventArgs e)
     {
         pnl_all.Visible = true;
         if (!Page.IsPostBack)
         {
-            
             _subRebind();
         }
     }
@@ -84,8 +81,8 @@ public partial class _homenewsAdmin : System.Web.UI.Page
     private void _showDelete(int id)
     {
         _panelControl(pnl_delete);
-        rpt_update.DataSource = objLinq.getNewsByID(id);
-        rpt_update.DataBind();
+        rpt_delete.DataSource = objLinq.getNewsByID(id);
+        rpt_delete.DataBind();
 
     }
 
@@ -108,6 +105,7 @@ public partial class _homenewsAdmin : System.Web.UI.Page
                 _subRebind();
                 break;
             case "Cancel":
+                _panelControl(pnl_all);
                 break;
 
         }

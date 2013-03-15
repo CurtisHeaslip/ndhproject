@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_content" Runat="Server">
 
-    <asp:Login ID="lgn_main" runat="server" DestinationPageUrl="~/admin/admin.aspx" CreateUserUrl="~/register.aspx" CreateUserText="Register" />
+    <asp:Login ID="lgn_main" runat="server" DestinationPageUrl="~/admin/homenewsAdmin.aspx" CreateUserUrl="~/register.aspx" CreateUserText="Register" />
 
 </asp:Content>
 

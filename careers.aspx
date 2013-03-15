@@ -58,12 +58,12 @@
     </asp:Panel>
    
     <!--upload resumes in ms document format to database (in progress)-->
-    <!--<asp:Panel ID="pnl_resumeUpload" runat="server">
+    <%--<asp:Panel ID="pnl_resumeUpload" runat="server">
         <asp:FileUpload ID="resumeUpload" runat="server" />
         <asp:Button ID="btn_upload" runat="server" Text="Upload" OnClick="subResumeUpload" />
         <br /><br />
         <asp:Label ID="lbl_uploadStatus" runat="server" Text="Upload Status" />
-    </asp:Panel>-->
+    </asp:Panel>--%>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_secondary" Runat="Server">
 </asp:Content>

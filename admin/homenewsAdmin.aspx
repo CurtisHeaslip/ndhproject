@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminPage.master" AutoEventWireup="true" CodeFile="homenewsAdmin.cs" Inherits="_homenewsAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminPage.master" AutoEventWireup="true" CodeFile="homenewsAdmin.aspx.cs" Inherits="_homenewsAdmin" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph_content" runat="Server">
+<asp:Content ID="homenewsAdminContent" ContentPlaceHolderID="cph_content" runat="Server">
 
     <AJAX:ToolkitScriptManager ID="tsm_main" runat="server" />
     <AJAX:CalendarExtender ID="cae_insert" runat="server" TargetControlID="txt_event_dateI" />
@@ -20,11 +20,12 @@
 
     <asp:RequiredFieldValidator ID="rfv_event_dateI" runat="server" Text="*Required" ControlToValidate="txt_event_dateI" ValidationGroup="insert" />
     <br />
-<asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" OnCommand="subAdmin" ValidationGroup="insert" />
-    <br /> <br />
+    <asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" OnCommand="subAdmin" ValidationGroup="insert" />
+    <br />
+    <br />
     <%-- The All Panel --%>
     <asp:Panel ID="pnl_all" runat="server" GroupingText="All Products">
-        <table cellpadding="3" cellspacing="5" border="1">
+        <table>
             <thead>
                 <tr>
                     <th>News Title</th>
@@ -49,7 +50,7 @@
     </asp:Panel>
 
     <asp:Panel ID="pnl_update" runat="server" GroupingText="Update Product">
-        <table cellpadding="3" cellspacing="5" border="1">
+        <table>
             <thead>
                 <tr>
                     <th>Title</th>
@@ -82,7 +83,7 @@
         </table>
     </asp:Panel>
     <asp:Panel ID="pnl_delete" runat="server" GroupingText="Delete Product">
-        <table cellpadding="3" cellspacing="5" border="1">
+        <table>
             <thead>
                 <tr>
                     <th>Title</th>
@@ -93,10 +94,14 @@
             <tbody>
                 <asp:Repeater ID="rpt_delete" runat="server" OnItemCommand="subUpDel">
                     <ItemTemplate>
-                        <asp:HiddenField ID="hdf_id" runat="server" Value='<%#Eval("news_id") %>' />
-                        <br />
-                        <asp:Button ID="btn_doDelete" runat="server" Text="Delete" CommandName="Delete" /><br />
-                        <asp:Button ID="btn_doCancel" runat="server" Text="Cancell" CommandName="Cancel" />
+                        <tr>
+                            <asp:HiddenField ID="hdf_id" runat="server" Value='<%#Eval("news_id") %>' />
+                            <td><asp:Label ID="lbl_titleD" runat="server" Text='<%#Eval("title") %>' /></td>
+                            <td><asp:Label ID="lbl_main_textD" runat="server" Text='<%#Eval("main_text") %>' /></td>
+                            <td><asp:Label ID="lbl_event_dateD" runat="server" Text='<%#Eval("event_date") %>' /></td>
+                            <td><asp:Button ID="btn_doDelete" runat="server" Text="Delete" CommandName="Delete" />
+                            <asp:Button ID="btn_doCancel" runat="server" Text="Cancel" CommandName="Cancel" /></td>
+                        </tr>
                     </ItemTemplate>
                 </asp:Repeater>
             </tbody>
