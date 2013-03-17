@@ -233,7 +233,8 @@
 <%-- ========================================================================= --%>
 <asp:Content ID="cnt_title" ContentPlaceHolderID="cph_primary_title" runat="Server">
     <h1>
-        <asp:Label ID="lbl_map" runat="server" Text="How to Find Us" /></h1>
+        <asp:Label ID="lbl_map" runat="server" Text="How to Find Us" />
+    </h1>
 </asp:Content>
 <%-- ========================================================================= --%>
 <%-- / end main content title--%>
@@ -244,6 +245,46 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="cph_primary_content" runat="Server">
     <div id="mapContainer">
         <div id="map"></div>
+    </div>
+    <div id="contactForm">
+        <h1>
+            <asp:Label ID="ctt_title" runat="server" Text="Contact Us" />
+        </h1>
+
+        <h2>
+            <asp:Label id="ctt_subtitle" runat="server">
+                Have questions, comments, or concerns about issues at our hospital? Feel free to contact us using the form below.
+            </asp:Label>
+        </h2>
+
+        <asp:Panel ID="pnl_contact" runat="server" CssClass="contactFormInside">
+            <asp:Label ID="lbl_name" runat="server" Text="Name" CssClass="contactLabel"/>
+            <asp:TextBox ID="txt_name" runat="server" CssClass="contactText" />
+            <asp:RequiredFieldValidator ID="rfv_name" runat="server" Display="None" ValidationGroup="contactForm" ControlToValidate="txt_name" ErrorMessage="* No Name Provided" />
+
+            <asp:Label ID="lbl_email" runat="server" Text="Email" CssClass="contactLabel"/>
+            <asp:TextBox ID="txt_email" runat="server" CssClass="contactText" />
+            <asp:RegularExpressionValidator ID="reg_email" runat="server" Display="None" ValidationGroup="contactForm" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txt_email" ErrorMessage="* Invalid Email Address" />
+            <asp:RequiredFieldValidator ID="rfv_email" runat="server" Display="None" ValidationGroup="contactForm" ControlToValidate="txt_email" ErrorMessage="* No Email Provided" />
+
+            <asp:Label ID="lbl_concern" runat="server" Text="Concern" CssClass="contactLabel"/>
+            <asp:DropDownList ID="ddl_concern" runat="server" CssClass="contactList" CausesValidation="true">
+                <asp:ListItem Selected="True" Text="Please Select One" Value="0" />
+                <asp:ListItem Text="I wish to speak to an administrator" Value="1" />
+                <asp:ListItem Text="I have a health related question" Value="2" />
+                <asp:ListItem Text="I have a concern about the hospital" Value="3" />
+                <asp:ListItem Text="I have a general question" Value="4" />
+            </asp:DropDownList>
+            <%-- This acts like a required field validator for dropdownlist--%>
+            <asp:CompareValidator ID="cfv_concern" Display="None" ValidationGroup="contactForm" runat="server" ControlToValidate="ddl_concern" Operator="NotEqual" ValueToCompare="0" ErrorMessage="* No Concern Selected" />
+
+            <asp:Label ID="lbl_message" runat="server" Text="Message" CssClass="contactLabel"/>
+            <asp:TextBox ID="txt_message" runat="server" TextMode="MultiLine" CssClass="contactMultiText" />
+            <asp:RequiredFieldValidator ID="rfv_message" runat="server" Display="None" ValidationGroup="contactForm" ControlToValidate="txt_message" ErrorMessage="* No Message Provided" />
+
+            <asp:Button ID="btn_submit" OnClick="subClick" runat="server" Text="Send Message" class="contactButton" ValidationGroup="contactForm" />
+            <asp:ValidationSummary ID="val_submit" runat="server" ValidationGroup="contactForm" ShowSummary="false" ShowMessageBox="true" />
+        </asp:Panel>
     </div>
 </asp:Content>
 <%-- ========================================================================= --%>
@@ -258,7 +299,7 @@
         </div>
         <div class="secondaryContent">
             <p>Click the calculated distances to have the map display the fastest route to the hospital</p>
-            <%-- When I run this table server side, it messed up javascript --%>
+            <%-- When I run this table server side, it messes up javascript --%>
             <table id="matrix"></table>
             <div id="controls">
                 <span>Mode of Travel: 

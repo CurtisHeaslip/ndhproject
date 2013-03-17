@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="adminMaster.master.cs" Inherits="admin_adminMaster" EnableTheming="false" %>
+
+<%-- The admin master page uses Twitter Bootstrap --%>
+<%-- For more information on Twitter Boostrap, click here: http://twitter.github.com/bootstrap/index.html --%>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Notre Dame Hospital - Administration Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+      body {
+        padding-top: 60px; /* nudge the content away from nav bar */
+      }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:SiteMapDataSource ID="sms_main" runat="server" ShowStartingNode="false" SiteMapProvider="adminSiteMap" />
+        <div id="adminPage">
+
+            <div class="navbar navbar-fixed-top">
+              <div class="navbar-inner">
+                <div class="container-fluid">
+                  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <asp:Hyperlink ID="hl_brand" runat="server" CssClass="brand" href="../index.aspx">Notre Dame Hospital</asp:Hyperlink>
+                  <div class="nav-collapse collapse">
+                      <!-- insert listview hack in order to get around menu control silly way of rendering -->
+                    <asp:ListView ID="lv_navi" runat="server" DataSourceID="sms_main">
+                        <LayoutTemplate>
+                            <ul class="nav">
+                                <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
+                            </ul>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <li><asp:HyperLink runat="server" ID="lnkLesson" NavigateUrl='<%# Eval("Url") %>' Text='<%# Eval("Title") %>' /></li>
+                        </ItemTemplate>
+                    </asp:ListView>
+                  </div><!--/.nav-collapse -->
+                </div>
+              </div>
+            </div>
+
+            <div class="container-fluid">
+                <asp:ContentPlaceHolder ID="con_content" runat="server">
+                    <!-- primary content -->
+                    <h1>This is where your content goes</h1>
+                    <p>Place all of your admin controls within the con_content ContentPlaceHolder</p>
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../App_Themes/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        // this script applies active class to the active page link in the navigation
+        $(document).ready(function () {
+            var loc = window.location.href;
+            $(".nav li a").each(function () {
+                if (this.href == loc) {
+                    $(this).parent().addClass('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

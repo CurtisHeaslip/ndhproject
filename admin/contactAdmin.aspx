@@ -1,16 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="contactAdmin.aspx.cs" Inherits="admin_contactAdmin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/adminMaster.master" AutoEventWireup="true" CodeFile="contactAdmin.aspx.cs" Inherits="admin_Default" %>
 
-<!DOCTYPE html>
+<asp:Content ID="cnt_head" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="cnt_content" ContentPlaceHolderID="con_content" Runat="Server">
+    <h1>Contact Page Administration</h1>
+    <asp:Label ID="lbl_conMessage" runat="server" />
+    <div class="contactFormResponses">
+        <div class="page-header">
+            <h3>Contact Form <small>Manage user submitted responses</small></h3>
+        </div>
+        <asp:ListView ID="lv_contact" runat="server" OnItemCommand="subAdmin">
+            <LayoutTemplate>
+                    <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+            </LayoutTemplate>
+            <ItemTemplate>
+                    <div class="well span8">
+                        <asp:HiddenField ID="hdf_contactId" runat="server" Value='<%#Eval("id") %>' />
+                        <p>From: <asp:Label ID="lbl_conName" runat="server" text='<%#Eval("contactName") %>' /> (<asp:Label ID="lbl_conEmail" runat="server" Text='<%#Eval("contactEmail") %>' />)</p>
+                        <p>Subject: <asp:Label ID="lbl_conReason" runat="server" Text='<%#Eval("contactReason") %>' /></p>
+                        <p>Message:</p>
+                        <p><asp:Label ID="lbl_conMessage" runat="server" Text='<%#Eval("contactMessage") %>' /></p>
+                        <hr />
+                            <asp:Button ID="btn_reply" runat="server" Text="Reply to Message" />
+                            <asp:Button ID="btn_delete" runat="server" Text="Delete Message" CommandName="subDelete" />
+                    </div>            
+            </ItemTemplate>
+        </asp:ListView>
+    </div>
+</asp:Content>
 
-
-
-    </form>
-</body>
-</html>
