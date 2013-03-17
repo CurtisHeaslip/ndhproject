@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.Net.Mail; // imported
+
 public partial class _Default : System.Web.UI.Page
 {
 
     contactLinqClass objLinq = new contactLinqClass();
+    emailClass objEmail = new emailClass();
 
     // Origin Map private property
     // Used to store the map data
@@ -41,6 +44,12 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
+    // submit data to server
+    protected void subClick(object sender, EventArgs e)
+    {
+        _strMessage(objEmail.sendEmail());
+    }
+
     // ================================================================
     /*
      * Contact Submit
@@ -55,14 +64,14 @@ public partial class _Default : System.Web.UI.Page
      * 
      */
 
-    // submit data to server
-    protected void subClick(object sender, EventArgs e)
-    {
-        _strMessage(objLinq.commitInsert(txt_name.Text, txt_email.Text, ddl_concern.SelectedValue.ToString(), txt_message.Text));
+    //// submit data to server
+    //protected void subClick(object sender, EventArgs e)
+    //{
+    //    _strMessage(objLinq.commitInsert(txt_name.Text, txt_email.Text, ddl_concern.SelectedValue.ToString(), txt_message.Text));
                 
-        // force postback, this fixes error with google map not reloading after data submit
-        Response.Redirect("contact.aspx");
-    }
+    //    // force postback, this fixes error with google map not reloading after data submit
+    //    Response.Redirect("contact.aspx");
+    //}
 
     private void _strMessage(bool flag)
     {
