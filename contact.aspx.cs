@@ -9,8 +9,6 @@ using System.Net.Mail; // imported
 
 public partial class _Default : System.Web.UI.Page
 {
-
-    contactLinqClass objLinq = new contactLinqClass();
     emailClass objEmail = new emailClass();
 
     // Origin Map private property
@@ -44,34 +42,25 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    // submit data to server
-    protected void subClick(object sender, EventArgs e)
-    {
-        _strMessage(objEmail.sendEmail());
-    }
 
     // ================================================================
     /*
      * Contact Submit
      * 
-     * The next few subroutines will handle the form data. Using LINQ
-     * it will be sent to the DB. We will prevent the user from resubmitting
-     * the form after completion by creating a cookie. It will take one of 
-     * two forms, success or fail. If success, it will provide user with 
-     * a positive message, if fail, it will provide user with a message
-     * asking to try again later. The cookies will be removed on browser
-     * close.
+     * subClick is responsible for using the email class to send an
+     * email to the NDH gmail account (can easily be changed later). If the
+     * email is successful, then a cookie is created that will inform the user
+     * their message was sent. If it fails, a cookie is sent saying the 
+     * system is currently experiencing difficulties. Cookies are
+     * erased on browser close.
      * 
      */
 
-    //// submit data to server
-    //protected void subClick(object sender, EventArgs e)
-    //{
-    //    _strMessage(objLinq.commitInsert(txt_name.Text, txt_email.Text, ddl_concern.SelectedValue.ToString(), txt_message.Text));
-                
-    //    // force postback, this fixes error with google map not reloading after data submit
-    //    Response.Redirect("contact.aspx");
-    //}
+    protected void subClick(object sender, EventArgs e)
+    {
+        _strMessage(objEmail.sendEmail(txt_name.Text, txt_email.Text, ddl_concern.SelectedValue.ToString(), txt_message.Text));
+        Response.Redirect("contact.aspx"); // force refresh to use cookie that is created
+    }
 
     private void _strMessage(bool flag)
     {

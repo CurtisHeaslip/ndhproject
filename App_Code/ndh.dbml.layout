@@ -8,16 +8,10 @@
         <elementListCompartment Id="71050232-46d2-48a4-8b13-6eac628dbe97" absoluteBounds="1.7649999999999997, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="34e95b80-3847-4423-9565-85c79a9b408c" absoluteBounds="4, 1, 2, 1.0016910807291668">
+    <classShape Id="9a3b3a99-a28a-4f5a-a300-e4f2157ee9b5" absoluteBounds="3.875, 1, 2, 1.1939925130208333">
       <DataClassMoniker Name="/ndhDataContext/mapMatrix" />
       <nestedChildShapes>
-        <elementListCompartment Id="3211d659-ff20-4d6e-a024-f8a7566afaec" absoluteBounds="4.015, 1.46, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8b7aead1-5799-48c7-bced-508d63d5ce48" absoluteBounds="4, 2.25, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/ndhDataContext/contact" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ea938439-00fb-4cc5-a442-336357fceda9" absoluteBounds="4.015, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="efe9e1a2-f11c-4ac0-ab25-c79d0e13897f" absoluteBounds="3.8899999999999997, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

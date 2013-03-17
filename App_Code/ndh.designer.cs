@@ -32,9 +32,9 @@ public partial class ndhDataContext : System.Data.Linq.DataContext
   partial void Inserthomenew(homenew instance);
   partial void Updatehomenew(homenew instance);
   partial void Deletehomenew(homenew instance);
-  partial void Insertcontact(contact instance);
-  partial void Updatecontact(contact instance);
-  partial void Deletecontact(contact instance);
+  partial void InsertmapMatrix(mapMatrix instance);
+  partial void UpdatemapMatrix(mapMatrix instance);
+  partial void DeletemapMatrix(mapMatrix instance);
   #endregion
 	
 	public ndhDataContext() : 
@@ -80,14 +80,6 @@ public partial class ndhDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<mapMatrix>();
-		}
-	}
-	
-	public System.Data.Linq.Table<contact> contacts
-	{
-		get
-		{
-			return this.GetTable<contact>();
 		}
 	}
 }
@@ -251,47 +243,14 @@ public partial class homenew : INotifyPropertyChanging, INotifyPropertyChanged
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mapMatrix")]
-public partial class mapMatrix
-{
-	
-	private string _origin;
-	
-	public mapMatrix()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_origin", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string origin
-	{
-		get
-		{
-			return this._origin;
-		}
-		set
-		{
-			if ((this._origin != value))
-			{
-				this._origin = value;
-			}
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.contact")]
-public partial class contact : INotifyPropertyChanging, INotifyPropertyChanged
+public partial class mapMatrix : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
 	private int _id;
 	
-	private string _contactName;
-	
-	private string _contactEmail;
-	
-	private string _contactReason;
-	
-	private string _contactMessage;
+	private string _origin;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -299,17 +258,11 @@ public partial class contact : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OncontactNameChanging(string value);
-    partial void OncontactNameChanged();
-    partial void OncontactEmailChanging(string value);
-    partial void OncontactEmailChanged();
-    partial void OncontactReasonChanging(string value);
-    partial void OncontactReasonChanged();
-    partial void OncontactMessageChanging(string value);
-    partial void OncontactMessageChanged();
+    partial void OnoriginChanging(string value);
+    partial void OnoriginChanged();
     #endregion
 	
-	public contact()
+	public mapMatrix()
 	{
 		OnCreated();
 	}
@@ -334,82 +287,22 @@ public partial class contact : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contactName", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string contactName
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_origin", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string origin
 	{
 		get
 		{
-			return this._contactName;
+			return this._origin;
 		}
 		set
 		{
-			if ((this._contactName != value))
+			if ((this._origin != value))
 			{
-				this.OncontactNameChanging(value);
+				this.OnoriginChanging(value);
 				this.SendPropertyChanging();
-				this._contactName = value;
-				this.SendPropertyChanged("contactName");
-				this.OncontactNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contactEmail", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string contactEmail
-	{
-		get
-		{
-			return this._contactEmail;
-		}
-		set
-		{
-			if ((this._contactEmail != value))
-			{
-				this.OncontactEmailChanging(value);
-				this.SendPropertyChanging();
-				this._contactEmail = value;
-				this.SendPropertyChanged("contactEmail");
-				this.OncontactEmailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contactReason", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string contactReason
-	{
-		get
-		{
-			return this._contactReason;
-		}
-		set
-		{
-			if ((this._contactReason != value))
-			{
-				this.OncontactReasonChanging(value);
-				this.SendPropertyChanging();
-				this._contactReason = value;
-				this.SendPropertyChanged("contactReason");
-				this.OncontactReasonChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contactMessage", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string contactMessage
-	{
-		get
-		{
-			return this._contactMessage;
-		}
-		set
-		{
-			if ((this._contactMessage != value))
-			{
-				this.OncontactMessageChanging(value);
-				this.SendPropertyChanging();
-				this._contactMessage = value;
-				this.SendPropertyChanged("contactMessage");
-				this.OncontactMessageChanged();
+				this._origin = value;
+				this.SendPropertyChanged("origin");
+				this.OnoriginChanged();
 			}
 		}
 	}

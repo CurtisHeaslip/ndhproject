@@ -270,10 +270,10 @@
             <asp:Label ID="lbl_concern" runat="server" Text="Concern" CssClass="contactLabel"/>
             <asp:DropDownList ID="ddl_concern" runat="server" CssClass="contactList" CausesValidation="true">
                 <asp:ListItem Selected="True" Text="Please Select One" Value="0" />
-                <asp:ListItem Text="I wish to speak to an administrator" Value="1" />
-                <asp:ListItem Text="I have a health related question" Value="2" />
-                <asp:ListItem Text="I have a concern about the hospital" Value="3" />
-                <asp:ListItem Text="I have a general question" Value="4" />
+                <asp:ListItem Text="I wish to speak to an administrator" Value="I wish to speak to an administrator" />
+                <asp:ListItem Text="I have a health related question" Value="I have a health related question" />
+                <asp:ListItem Text="I have a concern about the hospital" Value="I have a concern about the hospital" />
+                <asp:ListItem Text="I have a general question" Value="I have a general question" />
             </asp:DropDownList>
             <%-- This acts like a required field validator for dropdownlist--%>
             <asp:CompareValidator ID="cfv_concern" Display="None" ValidationGroup="contactForm" runat="server" ControlToValidate="ddl_concern" Operator="NotEqual" ValueToCompare="0" ErrorMessage="* No Concern Selected" />

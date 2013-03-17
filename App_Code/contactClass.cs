@@ -28,14 +28,16 @@ public class contactClass
 
 public class emailClass
 {
-    public bool sendEmail()
+    public bool sendEmail(string _conName, string _conEmail, string _conReason, string _conMessage)
     {
-        MailMessage objMail = new MailMessage("neilff@gmail.com", "hospitalnotredame@gmail.com", "Email Subject", "Email Body");
+        string _fullMessage = "From: " + _conName + " (" + _conEmail + ")" + "<br />Message Body: " + _conMessage; 
+        MailMessage objMail = new MailMessage(_conEmail, "hospitalnotredame@gmail.com", _conReason, _fullMessage);
         NetworkCredential objNC = new NetworkCredential("hospitalnotredame@gmail.com", "Notred@me5");
         SmtpClient objSMTP = new SmtpClient("smtp.gmail.com", 587); // for gmail
         
         using(objSMTP)
         {
+            objMail.IsBodyHtml = true; // allows use of html in body
             objSMTP.EnableSsl = true;
             objSMTP.Credentials = objNC;
             objSMTP.Send(objMail);
@@ -49,37 +51,48 @@ public class emailClass
 
 // ================================================================
 /*
- * Contact LINQ Class
+ * Map LINQ Class
  * 
- * Only required Insert and Delete, as there is no need to 
- * update a users submitted email and will not be selecting 
- * by id, instead listing all info
+ * Produces the origins for the map sidebar
  * 
  */
 
-public class contactLinqClass
+public class mapLinqClass
 {
     // method to select all
-    public IQueryable<contact> getContacts()
+    public IQueryable<mapMatrix> getLocations()
     {
-        ndhDataContext objContact = new ndhDataContext();
-        var allcontact = objContact.contacts.Select(x => x); // method syntax
-        return allcontact;
+        ndhDataContext objMap = new ndhDataContext();
+        var allLocations = objMap.mapMatrixes.Select(x => x); // method syntax
+        return allLocations;
     }
 
     // method that performs insert
-    public bool commitInsert(string _conName, string _conEmail, string _conReason, string _conMessage)
+    public bool commitInsert(string _origin)
     {
-        ndhDataContext objContact = new ndhDataContext();
-        using (objContact)
+        ndhDataContext objMap = new ndhDataContext();
+        using (objMap)
         {
-            contact objContactNew = new contact();
-            objContactNew.contactName = _conName;
-            objContactNew.contactEmail = _conEmail;
-            objContactNew.contactReason = _conReason;
-            objContactNew.contactMessage = _conMessage;
-            objContact.contacts.InsertOnSubmit(objContactNew);
-            objContact.SubmitChanges();
+            mapMatrix objMapNew = new mapMatrix();
+            objMapNew.origin = _origin;
+            objMap.mapMatrixes.InsertOnSubmit(objMapNew);
+            objMap.SubmitChanges();
+            return true;
+        }
+    }
+
+    // method that performs update
+    public bool commitUpdate(int _id, string _origin) // perform update
+    {
+        ndhDataContext objMap = new ndhDataContext();
+
+        using (objMap)
+        {
+            var objUpMap = objMap.mapMatrixes.Single(x => x.id == _id); // perform update where id = x
+
+            objUpMap.origin = _origin; // gather fields
+
+            objMap.SubmitChanges(); // commit changes
             return true;
         }
     }
@@ -87,12 +100,12 @@ public class contactLinqClass
     // method that performs delete
     public bool commitDelete(int _id)
     {
-        ndhDataContext objContact = new ndhDataContext();
-        using (objContact)
+        ndhDataContext objMap = new ndhDataContext();
+        using (objMap)
         {
-            var objContactDelete = objContact.contacts.Single(x => x.id == _id);
-            objContact.contacts.DeleteOnSubmit(objContactDelete);
-            objContact.SubmitChanges();
+            var objMapDelete = objMap.mapMatrixes.Single(x => x.id == _id);
+            objMap.mapMatrixes.DeleteOnSubmit(objMapDelete);
+            objMap.SubmitChanges();
             return true;
         }
     }

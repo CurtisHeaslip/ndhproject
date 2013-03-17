@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class admin_Default : System.Web.UI.Page
 {
-    contactLinqClass objLinq = new contactLinqClass();
+    mapLinqClass objLinq = new mapLinqClass();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,20 +19,28 @@ public partial class admin_Default : System.Web.UI.Page
 
     private void _subRebind()
     {
-        lv_contact.DataSource = objLinq.getContacts();
-        lv_contact.DataBind();
+        txt_originI.Text = string.Empty;
+
+        lv_map.DataSource = objLinq.getLocations();
+        lv_map.DataBind();
     }
 
     private void _strMessage(bool flag, string str)
     {
         if (flag)
         {
-            lbl_conMessage.Text = "<span style='color: green;'>Product " + str + " was successful</span>";
+            lbl_message.Text = "<span style='color: green;'>Origin " + str + " was successful</span>";
         }
         else
         {
-            lbl_conMessage.Text = "<span style='color: red;'>Product " + str + " was not successful</span>";
+            lbl_message.Text = "<span style='color: red;'>Origin " + str + " was not successful</span>";
         }
+    }
+
+    protected void subInsert(object sender, EventArgs e)
+    {
+        _strMessage(objLinq.commitInsert(txt_originI.Text), "insert");
+        _subRebind();
     }
 
     protected void subAdmin(object sender, ListViewCommandEventArgs e)
@@ -40,8 +48,18 @@ public partial class admin_Default : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "subDelete":
-                int _id = int.Parse(((HiddenField)e.Item.FindControl("hdf_contactId")).Value);
+                int _id = int.Parse(((Label)e.Item.FindControl("lbl_originId")).Text);
                 _strMessage(objLinq.commitDelete(_id), "delete");
+                _subRebind();
+
+                break;
+
+            case "subUpdate":
+                Label txtId = (Label)e.Item.FindControl("lbl_originId");
+                TextBox txtOrigin = (TextBox)e.Item.FindControl("txt_origin");
+                int oriID = int.Parse(txtId.Text.ToString());
+
+                _strMessage(objLinq.commitUpdate(oriID, txtOrigin.Text), "update");
                 _subRebind();
 
                 break;

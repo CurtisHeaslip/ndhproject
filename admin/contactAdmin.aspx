@@ -1,30 +1,53 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/adminMaster.master" AutoEventWireup="true" CodeFile="contactAdmin.aspx.cs" Inherits="admin_Default" %>
 
-<asp:Content ID="cnt_head" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="cnt_head" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 
-<asp:Content ID="cnt_content" ContentPlaceHolderID="con_content" Runat="Server">
+<asp:Content ID="cnt_content" ContentPlaceHolderID="con_content" runat="Server">
     <h1>Contact Page Administration</h1>
-    <asp:Label ID="lbl_conMessage" runat="server" />
+    <asp:Label ID="lbl_message" runat="server" />
     <div class="contactFormResponses">
         <div class="page-header">
-            <h3>Contact Form <small>Manage user submitted responses</small></h3>
+            <h3>Map Origins <small>Manage the origins displayed within the interactive map</small></h3>
         </div>
-        <asp:ListView ID="lv_contact" runat="server" OnItemCommand="subAdmin">
+
+        <div class="well">
+            <h4><asp:Label ID="lbl_insert" runat="server" Text="Insert New Origin" /></h4>
+            
+            <asp:Label ID="lbl_originI" runat="server" Text="New Origin: " />
+            <asp:TextBox ID="txt_originI" runat="server" />
+            <p><asp:Button ID="btn_insert" runat="server" Text="Insert" OnClick="subInsert" /></p>
+        </div>
+
+        <hr />
+
+        <asp:ListView ID="lv_map" runat="server" OnItemCommand="subAdmin">
             <LayoutTemplate>
-                    <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Origin</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                    </tbody>
+                </table>
             </LayoutTemplate>
             <ItemTemplate>
-                    <div class="well span8">
-                        <asp:HiddenField ID="hdf_contactId" runat="server" Value='<%#Eval("id") %>' />
-                        <p>From: <asp:Label ID="lbl_conName" runat="server" text='<%#Eval("contactName") %>' /> (<asp:Label ID="lbl_conEmail" runat="server" Text='<%#Eval("contactEmail") %>' />)</p>
-                        <p>Subject: <asp:Label ID="lbl_conReason" runat="server" Text='<%#Eval("contactReason") %>' /></p>
-                        <p>Message:</p>
-                        <p><asp:Label ID="lbl_conMessage" runat="server" Text='<%#Eval("contactMessage") %>' /></p>
-                        <hr />
-                            <asp:Button ID="btn_reply" runat="server" Text="Reply to Message" />
-                            <asp:Button ID="btn_delete" runat="server" Text="Delete Message" CommandName="subDelete" />
-                    </div>            
+                <tr>
+                    <td>
+                        <asp:Label ID="lbl_originId" runat="server" Text='<%#Eval("id") %>' /></td>
+                    <td>
+                        <asp:TextBox ID="txt_origin" runat="server" Text='<%#Eval("origin") %>' CssClass="input-xxlarge" /></td>
+                    <td>
+                        <asp:Button ID="btn_update" runat="server" Text="Update" CommandName="subUpdate" /></td>
+                    <td>
+                        <asp:Button ID="btn_delete" runat="server" Text="Delete" CommandName="subDelete" OnClientClick="return confirm('Are you sure you wish to delete?');" /></td>
+                </tr>
             </ItemTemplate>
         </asp:ListView>
     </div>
